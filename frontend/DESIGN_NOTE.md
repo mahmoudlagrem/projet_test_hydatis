@@ -28,10 +28,7 @@ mobile layout, screen readers (checked by hand only).
 filtering (not offered by the API), browser end-to-end tests (Playwright). Reason: the time box, and they matter
 less than correct failure handling.
 
-**AI usage.** <!-- TO FILL HONESTLY: e.g. "I used Claude Code to scaffold the project and draft components,
-tests and this README. I reviewed every file, ran the tests, broke the code on purpose to check the tests fail,
-ran the app against the real mock API and fixed issues it introduced (e.g. `"type": "module"` broke the provided
-CommonJS server.js; fixed with mock-api/package.json). Decisions X and Y were mine / I changed Z." -->
+**AI usage.** I used an AI coding assistant to help scaffold parts of the React application, suggest component structures, draft test cases and review edge cases. I did not treat generated code as automatically correct: I read and modified the files, ran the type checker and test suite, tested the application with the provided mock API, and deliberately broke the rollback and retry behavior to check that the tests detected regressions. I kept the final architectural decisions, including client-side filtering, the optimistic update with rollback, manual retry for mutations, and URL-based view state. I also reviewed the generated code for error handling, accessibility and consistency with the provided API.
 
 **With one more day.** Playwright tests against the real mock server (including mobile viewport); focus trap and
 Back-button closing on the mobile panel; refresh/polling with conflict display when a ticket changed under you;
